@@ -36,6 +36,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new CopyWebpackPlugin({
+      pattern:[
+        {
+          from:'public/products',
+          to:'assets',
+        }
+      ]
+    })
   ],
 
   // 5. Development Server settings
