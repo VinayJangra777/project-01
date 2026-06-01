@@ -41,7 +41,7 @@ module.exports = {
       patterns:[
         {
           from:'public/products',
-          to:'assets',
+          to:'products',
         }
       ]
     })
