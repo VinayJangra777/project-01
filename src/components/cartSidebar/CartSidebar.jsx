@@ -9,7 +9,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);  // utils m cal
 
   const basePath = '/products';
 
@@ -48,11 +48,11 @@ const CartSidebar = ({ isOpen, onClose }) => {
                 ✕
               </button>
 
-              <div className="item-actions">
-                <button onClick={() => dispatch(removeFromCart(item.id))}>-</button>
+              {/* <div className="item-actions">
+                <button onClick={() => dispatch(removeFromCart(item.id))}>-</button>  // htana h yeh
                 <span>{item.quantity}</span>
                 <button onClick={() => dispatch(addToCart(item))}>+</button>
-              </div>
+              </div> */}
             </div>
           ))
         )}

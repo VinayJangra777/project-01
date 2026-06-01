@@ -9,15 +9,10 @@ import "./ProductListing.scss";
 const URL = "https://mocki.io/v1/0fdb8e9e-df08-4b67-9ae0-3cb4eccd3bc8?utm_source=chatgpt.com";
 
 const ProductListing = () => {
-    const dispatch = useDispatch();
-     const sortBy = useSelector((state) => state.products.sortBy);
-
-
+    const dispatch = useDispatch(); 
+    const currentSort = useSelector((state) => state.products.sortBy);  // selector alg krna in diff file state.products.sortBy X
     const sortedItems = useSelector(selectSortedProducts);
     
-   
-    const currentSort = useSelector((state) => state.products.sortBy);
-
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -42,10 +37,10 @@ const ProductListing = () => {
                 <p className="products-count">{`${sortedItems.length} Products Found`}</p>
                 <div className="sort-section">
                     <label htmlFor="sort-select">Order By:</label>
-                    <select id="sort-select" value={sortBy} onChange={(e) => dispatch(setSortOrder(e.target.value))}>
+                    <select id="sort-select" value={currentSort} onChange={handleSortChange}> // array m cnvrt  pending!!
                       <option value="">Select Price Order</option>
                       <option value="low-to-high">Lowest to Highest</option>
-                      <option value="high-to-low">Highest to Lowest</option>
+                      <option value="high-to-low">Highest to Lowest</option>    
                     </select>
                 </div>
             </div>
