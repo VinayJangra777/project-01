@@ -1,0 +1,43 @@
+$button-gray: #ececec;
+$primary-black: #1b1a20;
+
+.filters-container {
+  width: 100%;
+
+  .sizes-section {
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: $primary-black;
+      margin-bottom: 14px;
+    }
+  }
+
+  .sizes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .size-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: $button-gray;
+      color: #555;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #ddd;
+      }
+
+      &.active {
+        background-color: $primary-black;
+        color: #fff;
+      }
+    }
+  }
+}
