@@ -1,15 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addToCart } from '../../store/cartSlice'; 
+import { cartItemsSelector } from './CartSidebarSelector';
+import { cartPrice } from '../utils/cartPrice';
 import './CartSideBar.scss';
 
 const CartSidebar = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector(cartItemsSelector);
 
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);  // utils m cal
+  const totalPrice = cartPrice(cartItems);
 
   const basePath = '/products';
 
@@ -47,12 +49,6 @@ const CartSidebar = ({ isOpen, onClose }) => {
               >
                 ✕
               </button>
-
-              {/* <div className="item-actions">
-                <button onClick={() => dispatch(removeFromCart(item.id))}>-</button>  // htana h yeh
-                <span>{item.quantity}</span>
-                <button onClick={() => dispatch(addToCart(item))}>+</button>
-              </div> */}
             </div>
           ))
         )}

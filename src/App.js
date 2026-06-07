@@ -5,13 +5,15 @@ import { store } from "./store/store.js";
 import CartSidebar from "./components/cartSidebar/CartSidebar.jsx";
 import { useSelector } from "react-redux";
 import Filters from "./components/sizeFilter/Filters.jsx";
+import { cartItemsSelector } from "./components/cartSidebar/CartSidebarSelector.js";
+import { cartQty } from "./components/utils/cartCount.js";
 import './App.scss'
 
 
 const MainLayout = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartItems = useSelector(cartItemsSelector);
+  const cartCount = cartQty(cartItems);
   return (
     <div className="app-master-container">
 

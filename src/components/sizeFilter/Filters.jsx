@@ -1,14 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSizeFilter, setSortOrder } from '../../store/productSlice'
+import { selectedSizesSelector } from './FiltersSelector';
+import {availableSizes} from '../constants/sizes';
 import './Filters.scss';
 
 const Filters = () => {
   const dispatch = useDispatch();
-  const selectedSizes = useSelector((state) => state.products.selectedSizes);
-  const sortBy = useSelector((state) => state.products.sortBy);
-
-  const availableSizes = ['XS', 'S', 'M', 'ML', 'L', 'XL', 'XXL'];
+  const selectedSizes = useSelector(selectedSizesSelector);
 
   return (
     <div className="filters-container">
