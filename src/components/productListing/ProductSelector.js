@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setProducts,
   setSortOrder,
-  selectSortedProducts,
 } from "../../store/productSlice";
 
 export const currentSortSelector = (state) => state.products.sortBy;
